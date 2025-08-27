@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.UserMapper">
+
+<!-- 新規登録 -->
+<insert id="save" parameterType="com.example.demo.entity.UserEntity">
+INSERT INTO USERS(
+user_name,
+user_furigana,
+user_email,
+user_password
+)VALUES (
+#{userName},
+#{userFurigana},
+#{userEmail},
+#{userPassword}
+)
+</insert>
+
+<!--フォームから送られてきたuserEmailを元にDB内に同じメールアドレスがあるか照合する-->
+<!--同じメールアドレスが見つからなけらばnullが返る-->
+<select id="findByUserEmail" parameterType="String" resultType="com.example.demo.entity.UserEntity" >
+SELECT user_id, user_name, user_furigana, user_email, user_password
+FROM USERS
+WHERE  user_email = #{userEmail}
+AND    deleted = 0
+</select>
+
+<!--ユーザー情報更新-->
+<update id="userUpdate" parameterType="com.example.demo.entity.UserEntity">
+UPDATE USERS
+SET
+user_name = #{userName},
+user_furigana = #{userFurigana},
+user_password = #{userPassword},
+user_email = #{userEmail}
+WHERE user_id = #{userId}
+</update>
+
+<!--更新時の自分以外のメールアドレス重複チェック-->
+<select id="existsByEmailForUpdate" resultType="int">
+SELECT COUNT(*)
+FROM USERS
+WHERE user_email = #{userEmail}
+AND   user_id != #{userId}
+</select>
+
+<!--ユーザー削除-->
+<!-- 論理削除の為、deleteではなくupdateを使用-->
+<update id="deleteUser" parameterType="String">
+UPDATE USERS
+SET deleted = 1,
+	user_email = user_email || '_deleted_' || TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+WHERE user_email = #{userEmail}
+</update>
+
+</mapper>

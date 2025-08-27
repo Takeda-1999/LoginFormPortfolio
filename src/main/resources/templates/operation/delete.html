@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ユーザー削除画面</title>
+	<link rel="stylesheet" th:href="@{/css/delete.css}">
+</head>
+
+<body>
+
+	<h1>ユーザー削除画面</h1>
+	<p>以下のユーザーを削除します。よろしいですか？</p>
+	<div class="info-container">
+		<form th:action="@{/delete-check}" th:object="${userForm}" method="post">
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+			<div>
+				<label>名前</label>
+				<span th:text="*{userName}"></span>
+			</div>
+			<div>
+				<label>フリガナ</label>
+				<span th:text="*{userFurigana}"></span>
+			</div>
+			<div>
+				<label>メールアドレス</label>
+				<span th:text="*{userEmail}"></span>
+			</div>
+
+			<div class="button-container">
+				<!--ユーザー削除-->
+				<button type="submit" class="btn-delete">削除</button>
+				
+				<!--マイページ遷移-->
+				<a th:href="@{/mypage}" class="btn-back">マイページに戻る</a>
+			</div>
+		</form>
+	</div>
+
+
+</body>
+
+</html>

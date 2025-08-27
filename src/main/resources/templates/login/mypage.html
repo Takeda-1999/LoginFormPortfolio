@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>マイページ</title>
+	<link rel="stylesheet" th:href="@{/css/mypage.css}">
+</head>
+
+<body>
+	<div th:object="${userForm}">
+		<h1>マイページ</h1>
+		<div class="info-container">
+
+			<div>
+				<label>ユーザー名</label>
+				<span th:text="*{userName}"></span>
+			</div>
+			<div>
+				<label>フリガナ</label>
+				<span th:text="*{userFurigana}"></span>
+			</div>
+			<div>
+				<label>メールアドレス</label>
+				<span th:text="*{userEmail}"></span>
+			</div>
+
+			<div class="button-container">
+				<!--ユーザー情報更新-->
+				<a th:href="@{/user-info-update}" class="btn-update">ユーザー情報更新</a>
+
+				<!--ユーザー削除-->
+				<a th:href="@{/user-delete}" class="btn-delete">ユーザー削除</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>トップ</title>
+	<link rel="stylesheet" th:href="@{/css/top.css}">
+</head>
+
+<body>
+
+	<div class="info-container">
+		<h1>トップ</h1>
+		<div class="button-container">
+
+			<!--新規登録-->
+			<a th:href="@{/user-regist}" class="btn">新規登録</a>
+			<!--ログイン-->
+			<a th:href="@{/user-login}" class="btn">ログイン</a>
+		</div>
+	</div>
+
+</body>
+
+</html>

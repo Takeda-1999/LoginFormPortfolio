@@ -1,0 +1,99 @@
+/* スクロールを消す */
+html, body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 背景グラデーション */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* コンテンツ全体 */
+.form-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    width: 400px;
+    text-align: center;
+}
+
+.complete-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    width: 500px;
+    text-align: center;
+}
+
+/* タイトル */
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8rem;
+	white-space: nowrap;
+}
+
+/* 入力欄 */
+form div {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* エラーメッセージ */
+.error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+}
+
+/* ボタン */
+button, .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+	text-decoration: none;
+}
+
+button:hover, .btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
