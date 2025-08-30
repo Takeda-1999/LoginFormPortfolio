@@ -33,14 +33,14 @@
 ---
 
 ## 画面説明
-###GIF
+### GIF
 ![一連の動作](images/demo.gif)
 
-###新規登録
-####Validationエラー画面
+### 新規登録
+#### Validationエラー画面
 入力内容に不備があるとエラーメッセージが表示されます。
 ![Validationエラー画面](images/regist-validation1.png)
 
-###ユーザー情報更新
-####更新時のエラー
-![更新時のエラー](images/update-validation2.png)
+### ユーザー情報更新
+#### 更新時のエラー
+![更新時のエラー](images/sample.png)
