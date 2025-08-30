@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class LoginController {
+public class UserLoginController {
 	
 	private final UserService userService;
 	

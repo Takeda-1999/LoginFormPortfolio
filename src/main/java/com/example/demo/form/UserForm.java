@@ -18,10 +18,13 @@ public class UserForm {
 	
 	@NotBlank(message="名前を入力してください")
 	@Size(max=50, message="50文字以内で入力してください")
+	@Pattern(regexp="^[\\p{IsHan}\\p{InHiragana}\\p{InKatakana}ー]+$",
+		message="名前は漢字・ひらがな・カタカナで入力してください")
 	private String userName;
 	
 	@NotBlank(message="フリガナを入力してください")
 	@Size(max=100, message="100文字以内で入力してください")
+	@Pattern(regexp="^[ァ-ヶー]+$", message="全角カタカナで入力してください")
 	private String userFurigana;
 	
 	@NotBlank(message="メールアドレスを入力してください")

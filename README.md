@@ -36,11 +36,23 @@
 ### GIF
 ![一連の動作](images/demo.gif)
 
-### 新規登録
-#### Validationエラー画面
-入力内容に不備があるとエラーメッセージが表示されます。
+### 新規登録のエラー画面
+#### 各項目を求める値にするためにValidationで制御する
 ![Validationエラー画面](images/regist-validation1.png)
 
-### ユーザー情報更新
-#### 更新時のエラー
-![更新時のエラー](images/sample.png)
+#### メールアドレスとパスワードは二重チェック
+![isCheckメソッド表示](images/regist-validation2.png)
+
+
+### ログインのエラー画面
+#### メールアドレスとパスワードの照合でユーザーを識別する
+![ログインのエラー画面](images/login-error.png)
+
+
+### ユーザー情報更新のエラー画面
+#### 各項目を求める値にするためにValidationで制御する
+![更新時のエラー](images/update-validation1.png)
+
+#### メールアドレスの更新時には他のユーザーとメールアドレスが重複していないかチェック
+#### またメールアドレスではなくユーザーIDを識別対象として更新する
+![メールアドレス更新重複チェック](images/update-validation2.png)

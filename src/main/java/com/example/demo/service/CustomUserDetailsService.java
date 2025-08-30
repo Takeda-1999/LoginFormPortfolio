@@ -24,15 +24,15 @@ public class CustomUserDetailsService implements UserDetailsService {
 		UserEntity userEntity = userMapper.findByUserEmail(userEmail);
 		
 		if(userEntity == null) {
-			//SpringSecurityが標準で用意している例外クラス
+			//userEmailの照合が失敗すれば例外を飛ばしてSpringSecurityの内部でキャッチして/user-login?errorが飛ぶ
 			throw new UsernameNotFoundException("ユーザーが見つかりませんでした");
 		}
 		
-		//Userクラスに情報を詰め込みSpringSecurityが内部で自動照合して認証する
+		//Userクラスに情報を詰め込みパスワードの照合はSpringSecurityが内部で自動照合して認証する
 		return new User(
 				userEntity.getUserEmail(),
 				userEntity.getUserPassword(),
-				//ログインしたユーザーに権限を付与する
+				//ログインしたユーザーに権限を付与する。今回は権限は不要だがコンストラクタで必要のため記述
 				AuthorityUtils.createAuthorityList("ROLE_USER")
 				);
 		
