@@ -33,7 +33,7 @@ public class SecurityConfig {
 		http
 			//認可設定
 			.authorizeHttpRequests(auth -> auth
-					.requestMatchers("/", "/top", "/user-regist", "/user-complete","/login", "/css/**").permitAll() //認証不要
+					.requestMatchers("/", "/top", "/user-regist","/regist-complete", "/user-complete","/login", "/css/**").permitAll() //認証不要
 					.anyRequest().authenticated() //それ以外は認証必須
 					)
 			//ログイン認証設定

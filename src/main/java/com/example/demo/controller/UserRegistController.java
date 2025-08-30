@@ -46,10 +46,10 @@ public class UserRegistController {
 		
 		/*二重登録防止のためPRGパターンを使用する。
 		  redirectの後のreregist/completeこれがGETとして飛ばされる*/
-		return "redirect:/regist/complete";
+		return "redirect:/regist-complete";
 	}
 	
-	@GetMapping("/regist/complete") 
+	@GetMapping("/regist-complete") 
 	public String registComplete() {
 		
 		return "regist/complete";
